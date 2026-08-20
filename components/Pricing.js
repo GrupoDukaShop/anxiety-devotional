@@ -34,8 +34,12 @@ export default function Pricing() {
               </li>
             ))}
           </ul>
-          {/* TODO: point this at your real checkout (Stripe / Hotmart / Gumroad) */}
-          <a href="#" className="btn btn-gold">
+          <a
+            href="https://pay.hotmart.com/T107258212F"
+            className="btn btn-gold"
+            target="_blank"
+            rel="noreferrer"
+          >
             Get Instant Access — $9
           </a>
           <div className="guarantee">

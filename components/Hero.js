@@ -16,7 +16,12 @@ export default function Hero() {
             days your mind won&apos;t stop racing.
           </p>
           <div className="cta-row">
-            <a href="#pricing" className="btn btn-primary">
+            <a
+              href="https://pay.hotmart.com/T107258212F"
+              className="btn btn-primary"
+              target="_blank"
+              rel="noreferrer"
+            >
               Get Instant Access — $9
             </a>
           </div>

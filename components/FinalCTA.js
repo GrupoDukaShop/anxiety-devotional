@@ -7,7 +7,12 @@ export default function FinalCTA() {
           it.
         </h2>
         <p>Instant download. Start Day 1 in the next five minutes.</p>
-        <a href="#pricing" className="btn btn-primary">
+        <a
+          href="https://pay.hotmart.com/T107258212F"
+          className="btn btn-primary"
+          target="_blank"
+          rel="noreferrer"
+        >
           Get Instant Access — $9
         </a>
       </div>
