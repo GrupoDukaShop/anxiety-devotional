@@ -1,5 +1,6 @@
 import { Lora, Poppins } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 import "./globals.css";
 
 const lora = Lora({
@@ -35,6 +36,15 @@ export default function RootLayout({ children }) {
       <body>
         {children}
         <Analytics />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://static.hotmart.com/css/hotmart-fb.min.css"
+        />
+        <Script
+          src="https://static.hotmart.com/checkout/widget.min.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
