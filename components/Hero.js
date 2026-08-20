@@ -39,7 +39,7 @@ export default function Hero() {
           <div className="book-mock">
             <div className="book-spine-shadow" />
             <img
-              src="/cover.jpg"
+              src="/cove22r.jpg"
               alt="When Anxiety Takes Over devotional cover"
             />
             <div className="book-pages" />
