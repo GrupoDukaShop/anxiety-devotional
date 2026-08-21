@@ -8,7 +8,7 @@ export default function Nav() {
           <SunriseIcon />
           When Anxiety Takes Over
         </div>
-        <a href="#pricing" className="btn btn-primary">
+        <a href="#pricing" className="btn btn-primary btn-cta">
           Get the Devotional
         </a>
       </div>

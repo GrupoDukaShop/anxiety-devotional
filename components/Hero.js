@@ -18,10 +18,17 @@ export default function Hero() {
           <div className="cta-row">
             <a
               href="https://pay.hotmart.com/T107258212F?checkoutMode=2"
-              className="btn btn-primary hotmart-fb hotmart__button-checkout"
+              className="btn btn-primary btn-cta"
             >
-              Get Instant Access — $9
+              Get Instant Access — $5
             </a>
+          </div>
+          <div className="price-anchor" aria-label="Limited-time price: was $9, now $5, save $4">
+            <span className="price-anchor-label">Limited-time offer</span>
+            <span className="price-anchor-old">$9</span>
+            <span className="price-anchor-arrow" aria-hidden="true">&rarr;</span>
+            <span className="price-anchor-now">Now $5</span>
+            <span className="price-anchor-save">Save $4</span>
           </div>
           <div className="trust-row">
             <span>
@@ -39,19 +46,12 @@ export default function Hero() {
           </div>
         </div>
         <div className="book-stage">
-          <div className="book-mock">
-            <div className="book-spine-shadow" />
-            <img
-              src="/cove22r.jpg"
-              alt="When Anxiety Takes Over devotional cover"
-            />
-            <div className="book-pages" />
-            <div className="badge-float">
-              30
-              <br />
-              DAYS
-            </div>
-          </div>
+          <span className="ebook-badge">E-BOOK</span>
+          <img
+            className="cover-image"
+            src="/cover2.png"
+            alt="When Anxiety Takes Over devotional cover"
+          />
         </div>
       </div>
     </header>

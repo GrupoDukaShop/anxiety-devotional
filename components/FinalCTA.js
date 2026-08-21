@@ -9,9 +9,9 @@ export default function FinalCTA() {
         <p>Instant download. Start Day 1 in the next five minutes.</p>
         <a
           href="https://pay.hotmart.com/T107258212F?checkoutMode=2"
-          className="btn btn-primary hotmart-fb hotmart__button-checkout"
+          className="btn btn-primary btn-cta"
         >
-          Get Instant Access — $9
+          Get Instant Access — $5
         </a>
       </div>
     </section>

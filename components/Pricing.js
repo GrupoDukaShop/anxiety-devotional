@@ -22,7 +22,15 @@ export default function Pricing() {
           <div className="top-row">
             <div className="title">When Anxiety Takes Over</div>
             <div className="price-tag">
-              <div className="amt">$9</div>
+              <div className="deal-label">SPECIAL LAUNCH PRICE</div>
+              <div className="compare">
+                <span className="old">$9</span>
+                <span className="price-arrow" aria-hidden="true">&darr;</span>
+                <span className="new">
+                  <span className="amt">$5</span>
+                </span>
+              </div>
+              <div className="save-label">Save $4 today</div>
               <div className="per">one-time payment</div>
             </div>
           </div>
@@ -36,9 +44,9 @@ export default function Pricing() {
           </ul>
           <a
             href="https://pay.hotmart.com/T107258212F?checkoutMode=2"
-            className="btn btn-gold hotmart-fb hotmart__button-checkout"
+            className="btn btn-gold btn-cta"
           >
-            Get Instant Access — $9
+            Get Instant Access — $5
           </a>
           <div className="guarantee">
             <ShieldIcon />
