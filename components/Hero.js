@@ -52,6 +52,13 @@ export default function Hero() {
             src="/cover2.png"
             alt="When Anxiety Takes Over devotional cover"
           />
+          <div className="price-anchor price-anchor-mobile" aria-label="Limited-time price: was $9, now $5, save $4">
+            <span className="price-anchor-label">Limited-time offer</span>
+            <span className="price-anchor-old">$9</span>
+            <span className="price-anchor-arrow" aria-hidden="true">&rarr;</span>
+            <span className="price-anchor-now">Now $5</span>
+            <span className="price-anchor-save">Save $4</span>
+          </div>
         </div>
       </div>
     </header>

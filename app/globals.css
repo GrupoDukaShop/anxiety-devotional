@@ -227,6 +227,9 @@ nav .btn {
   font-weight: 600;
   color: var(--charcoal-deep);
 }
+.price-anchor-mobile {
+  display: none;
+}
 .price-anchor-label {
   color: var(--gold);
   text-transform: uppercase;
@@ -920,9 +923,14 @@ footer .fbottom {
   }
   .book-stage {
     order: -1;
+    flex-direction: column;
   }
   .cover-image {
     width: min(76vw, 340px);
+  }
+  .price-anchor-mobile {
+    display: inline-flex;
+    margin: 16px auto 0;
   }
   .pain-grid {
     grid-template-columns: 1fr;
