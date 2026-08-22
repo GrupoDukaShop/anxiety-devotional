@@ -17,7 +17,7 @@ export default function Hero() {
           </p>
           <div className="cta-row">
             <a
-              href="https://pay.hotmart.com/T107258212F?checkoutMode=2"
+              href="/checkout"
               className="btn btn-primary btn-cta"
             >
               Get Instant Access — $5

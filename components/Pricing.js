@@ -43,7 +43,7 @@ export default function Pricing() {
             ))}
           </ul>
           <a
-            href="https://pay.hotmart.com/T107258212F?checkoutMode=2"
+            href="/checkout"
             className="btn btn-gold btn-cta"
           >
             Get Instant Access — $5
