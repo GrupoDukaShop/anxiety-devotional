@@ -59,6 +59,9 @@ export default function Hero() {
             <span className="price-anchor-now">Now $5</span>
             <span className="price-anchor-save">Save $4</span>
           </div>
+          <a href="/checkout" className="btn btn-primary btn-cta mobile-book-cta">
+            Get Instant Access — $5
+          </a>
         </div>
       </div>
     </header>

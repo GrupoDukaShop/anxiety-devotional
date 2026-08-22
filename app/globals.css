@@ -230,6 +230,9 @@ nav .btn {
 .price-anchor-mobile {
   display: none;
 }
+.mobile-book-cta {
+  display: none;
+}
 .price-anchor-label {
   color: var(--gold);
   text-transform: uppercase;
@@ -931,6 +934,12 @@ footer .fbottom {
   .price-anchor-mobile {
     display: inline-flex;
     margin: 16px auto 0;
+  }
+  .mobile-book-cta {
+    display: inline-flex;
+    width: min(76vw, 340px);
+    justify-content: center;
+    margin-top: 2px;
   }
   .pain-grid {
     grid-template-columns: 1fr;
