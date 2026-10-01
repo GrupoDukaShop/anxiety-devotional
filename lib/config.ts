@@ -9,7 +9,7 @@ export const site = {
   ctaLabel: `Start Day 1 tonight, ${price}`,
   checkoutUrl:
     process.env.NEXT_PUBLIC_CHECKOUT_URL ??
-    "https://anxiety-devotional.vercel.app/checkout",
+    "https://pay.hotmart.com/T107258212F",
 
   // Coloque sua capa em /public (ex.: public/cover.png) e escreva "/cover.png".
   // Enquanto for null, a página usa a capa desenhada em CSS.
