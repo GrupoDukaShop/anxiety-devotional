@@ -67,7 +67,7 @@ export async function POST(request: Request) {
           throw new Error("Webhook did not confirm the lead");
         }
     }
-  } catch {
+  } catch (error) {
       console.error("Lead subscription failed", error instanceof Error ? error.message : "Unknown error");
     return NextResponse.json(
       { error: "We couldn't save your email. Please try again." },
