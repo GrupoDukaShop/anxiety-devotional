@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import CheckoutLink from "@/components/CheckoutLink";
 
 type Props = { href: string; label: string };
 
@@ -36,9 +37,9 @@ export default function StickyCta({ href, label }: Props) {
 
   return (
     <div className={`sticky${show ? " show" : ""}`} aria-hidden={!show}>
-      <a className="btn" href={href} tabIndex={show ? 0 : -1}>
+      <CheckoutLink className="btn" href={href} source="sticky" tabIndex={show ? 0 : -1}>
         {label}
-      </a>
+      </CheckoutLink>
     </div>
   );
 }

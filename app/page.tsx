@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { site } from "@/lib/config";
 import { timeline, steps, spec, forYou, included, faq } from "@/lib/content";
-import Author from "@/components/Author";
+import CheckoutLink from "@/components/CheckoutLink";
 import Horizon from "@/components/Horizon";
 import LeadForm from "@/components/LeadForm";
 import StickyCta from "@/components/StickyCta";
@@ -35,15 +35,15 @@ export default function Page() {
     <>
       <header className="hero night">
         <div className="wrap">
-          <a className="hero-offer" href={site.checkoutRedirectPath}>
+          <CheckoutLink className="hero-offer" href={site.checkoutRedirectPath} source="hero_banner">
             <span>30-day devotional</span>
             <span className="hero-offer-value">{site.price} · Instant PDF</span>
-          </a>
+          </CheckoutLink>
           <nav className="top" aria-label="Top">
             <span className="wordmark">{site.name}</span>
-            <a className="btn btn-small" href={site.checkoutRedirectPath}>
+            <CheckoutLink className="btn btn-small" href={site.checkoutRedirectPath} source="header">
               Get the devotional
-            </a>
+            </CheckoutLink>
           </nav>
           <div className="hero-grid">
             <div>
@@ -53,9 +53,9 @@ export default function Page() {
                 struggle with worry. Ten minutes a day. No streaks, no pressure, no guilt.
               </p>
               <div className="cta-row">
-                <a id="hero-cta" className="btn" href={site.checkoutRedirectPath}>
+                <CheckoutLink id="hero-cta" className="btn" href={site.checkoutRedirectPath} source="hero_button">
                   {site.ctaLabel}
-                </a>
+                </CheckoutLink>
                 <a className="text-link" href="#free">
                   Or read Day 1 free first
                 </a>
@@ -207,8 +207,6 @@ export default function Page() {
           </div>
         </section>
 
-        <Author />
-
         <section className="s-flat day pt0" id="free">
           <div className="wrap">
             <div className="free">
@@ -235,9 +233,9 @@ export default function Page() {
                 <h3>{site.name}</h3>
                 <p className="price">{site.price}</p>
                 <p className="price-note">One-time payment. Instant download, lifetime access.</p>
-                <a className="btn" href={site.checkoutRedirectPath}>
+                <CheckoutLink className="btn" href={site.checkoutRedirectPath} source="pricing">
                   {site.ctaLabel}
-                </a>
+                </CheckoutLink>
               </div>
               <div>
                 <ul>
@@ -297,9 +295,9 @@ export default function Page() {
           <div className="wrap">
             <h2>Fear may still come. Now you'll know exactly where to bring it.</h2>
             <p>Instant download. You could be reading Day 1 in the next five minutes.</p>
-            <a className="btn" href={site.checkoutRedirectPath}>
+            <CheckoutLink className="btn" href={site.checkoutRedirectPath} source="final">
               {site.ctaLabel}
-            </a>
+            </CheckoutLink>
           </div>
         </section>
       </main>

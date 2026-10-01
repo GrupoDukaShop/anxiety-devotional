@@ -1,4 +1,6 @@
 const SHEET_NAME = "Leads";
+const CLICK_SHEET_NAME = "Checkout Clicks";
+const CLICK_SOURCES = ["hero_banner", "header", "hero_button", "pricing", "final", "sticky"];
 
 function doPost(event) {
   try {
@@ -21,6 +23,24 @@ function doPost(event) {
     }
 
     const spreadsheet = SpreadsheetApp.openById(spreadsheetId);
+
+    if (payload.event === "checkout_click") {
+      if (!CLICK_SOURCES.includes(payload.source)) {
+        return jsonResponse({ ok: false, error: "Invalid click source" });
+      }
+
+      let clickSheet = spreadsheet.getSheetByName(CLICK_SHEET_NAME);
+      if (!clickSheet) clickSheet = spreadsheet.insertSheet(CLICK_SHEET_NAME);
+      if (clickSheet.getLastRow() === 0) {
+        clickSheet.appendRow(["Clicked at", "Button"]);
+      }
+
+      const clickedAt = new Date(payload.clickedAt);
+      const receivedAt = Number.isNaN(clickedAt.getTime()) ? new Date() : clickedAt;
+      clickSheet.appendRow([receivedAt, payload.source]);
+      return jsonResponse({ ok: true });
+    }
+
     let sheet = spreadsheet.getSheetByName(SHEET_NAME);
     if (!sheet) sheet = spreadsheet.insertSheet(SHEET_NAME);
 

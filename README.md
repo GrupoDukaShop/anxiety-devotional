@@ -40,7 +40,11 @@ npm run build && npm start   # produção
 5. Na Vercel, em **Settings > Environment Variables**, configure `LEAD_WEBHOOK_URL` com essa URL e
   `LEAD_WEBHOOK_SECRET` com o mesmo segredo do passo 3. Aplique em Production (e Preview, se necessário) e faça
   um novo deploy.
-6. Envie um cadastro de teste e confirme que a aba `Leads` foi criada e recebeu a linha.
+6. Os cliques nos botões de compra são gravados na aba `Checkout Clicks`, com horário e posição do botão; não incluem
+  identidade pessoal. Se já publicou o Apps Script antes, atualize a implantação em **Deploy > Manage deployments**,
+  escolha **Edit > New version > Deploy** para ativar o registro de cliques.
+7. Envie um cadastro de teste e confirme a linha na aba `Leads`; clique em um botão de compra e confirme a linha em
+  `Checkout Clicks`.
 
 O segredo nunca é enviado pelo navegador. Não coloque esses valores em variáveis `NEXT_PUBLIC_*` nem no repositório.
 
