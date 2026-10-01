@@ -7,6 +7,7 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://anxiety-devotional.vercel.app",
   price,
   ctaLabel: `Start Day 1 tonight, ${price}`,
+  checkoutRedirectPath: "/checkout",
   checkoutUrl:
     process.env.NEXT_PUBLIC_CHECKOUT_URL ??
     "https://pay.hotmart.com/T107258212F",

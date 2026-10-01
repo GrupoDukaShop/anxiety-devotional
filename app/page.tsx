@@ -35,13 +35,13 @@ export default function Page() {
     <>
       <header className="hero night">
         <div className="wrap">
-          <a className="hero-offer" href={site.checkoutUrl}>
+          <a className="hero-offer" href={site.checkoutRedirectPath}>
             <span>30-day devotional</span>
             <span className="hero-offer-value">{site.price} · Instant PDF</span>
           </a>
           <nav className="top" aria-label="Top">
             <span className="wordmark">{site.name}</span>
-            <a className="btn btn-small" href={site.checkoutUrl}>
+            <a className="btn btn-small" href={site.checkoutRedirectPath}>
               Get the devotional
             </a>
           </nav>
@@ -53,7 +53,7 @@ export default function Page() {
                 struggle with worry. Ten minutes a day. No streaks, no pressure, no guilt.
               </p>
               <div className="cta-row">
-                <a id="hero-cta" className="btn" href={site.checkoutUrl}>
+                <a id="hero-cta" className="btn" href={site.checkoutRedirectPath}>
                   {site.ctaLabel}
                 </a>
                 <a className="text-link" href="#free">
@@ -235,7 +235,7 @@ export default function Page() {
                 <h3>{site.name}</h3>
                 <p className="price">{site.price}</p>
                 <p className="price-note">One-time payment. Instant download, lifetime access.</p>
-                <a className="btn" href={site.checkoutUrl}>
+                <a className="btn" href={site.checkoutRedirectPath}>
                   {site.ctaLabel}
                 </a>
               </div>
@@ -297,7 +297,7 @@ export default function Page() {
           <div className="wrap">
             <h2>Fear may still come. Now you'll know exactly where to bring it.</h2>
             <p>Instant download. You could be reading Day 1 in the next five minutes.</p>
-            <a className="btn" href={site.checkoutUrl}>
+            <a className="btn" href={site.checkoutRedirectPath}>
               {site.ctaLabel}
             </a>
           </div>
@@ -325,7 +325,7 @@ export default function Page() {
         </div>
       </footer>
 
-      <StickyCta href={site.checkoutUrl} label={site.ctaLabel} />
+      <StickyCta href={site.checkoutRedirectPath} label={site.ctaLabel} />
     </>
   );
 }
