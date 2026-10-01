@@ -1,12 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { track } from "@vercel/analytics";
+import ThankYou from "@/components/ThankYou";
 
 type Status = "idle" | "loading" | "ok" | "error";
 
 export default function LeadForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
+  useEffect(() => {
+    function closeConfirmation() {
+      setShowConfirmation(false);
+    }
+
+    window.addEventListener("popstate", closeConfirmation);
+    return () => window.removeEventListener("popstate", closeConfirmation);
+  }, []);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -40,7 +52,9 @@ export default function LeadForm() {
 
       form.reset();
       setStatus("ok");
-      setMessage("Done. Check your inbox for Day 1 (and your spam folder, just in case).");
+      track("lead_submitted", { source: "day_1_form" });
+      window.history.pushState({}, "", "/thanks");
+      setShowConfirmation(true);
     } catch {
       setStatus("error");
       setMessage("Couldn't reach the server. Please try again in a moment.");
@@ -48,6 +62,7 @@ export default function LeadForm() {
   }
 
   return (
+    <>
     <form className="lead" onSubmit={onSubmit} noValidate>
       <label className="sr" htmlFor="email">
         Email address
@@ -75,5 +90,7 @@ export default function LeadForm() {
       </p>
       <small>I'll also send a few short notes about the devotional. Unsubscribe anytime.</small>
     </form>
+    {showConfirmation && <ThankYou modal onClose={() => window.history.back()} />}
+    </>
   );
 }
