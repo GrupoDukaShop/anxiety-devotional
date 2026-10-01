@@ -47,13 +47,28 @@ export async function POST(request: Request) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
-    if (!res.ok) throw new Error(`Webhook responded ${res.status}`);
+      if (!res.ok) {
+        console.error("Lead webhook returned a non-success status", { status: res.status });
+        throw new Error(`Webhook responded ${res.status}`);
+      }
 
     if (webhookSecret) {
-      const result = (await res.json().catch(() => null)) as { ok?: unknown } | null;
-      if (result?.ok !== true) throw new Error("Webhook did not confirm the lead");
+        const responseText = await res.text();
+        let result: { ok?: unknown; error?: unknown } | null = null;
+        try {
+          result = JSON.parse(responseText) as { ok?: unknown; error?: unknown };
+        } catch {
+          // The response is logged below without including its raw contents.
+        }
+
+        if (result?.ok !== true) {
+          const reason = typeof result?.error === "string" ? result.error : "Invalid webhook response";
+          console.error("Lead webhook rejected the submission", { status: res.status, reason });
+          throw new Error("Webhook did not confirm the lead");
+        }
     }
   } catch {
+      console.error("Lead subscription failed", error instanceof Error ? error.message : "Unknown error");
     return NextResponse.json(
       { error: "We couldn't save your email. Please try again." },
       { status: 502 }
