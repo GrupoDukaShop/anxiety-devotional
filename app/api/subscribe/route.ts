@@ -22,7 +22,7 @@ export async function POST(request: Request) {
 
   const webhook = process.env.LEAD_WEBHOOK_URL;
   const webhookSecret = process.env.LEAD_WEBHOOK_SECRET;
-  if (!webhook || !webhookSecret) {
+  if (!webhook) {
     return NextResponse.json(
       { error: "Sign-up isn't available right now. Please try again later." },
       { status: 503 }
@@ -30,18 +30,29 @@ export async function POST(request: Request) {
   }
 
   try {
+    const payload: {
+      email: string;
+      source: string;
+      createdAt: string;
+      secret?: string;
+    } = {
+      email,
+      source: "landing-page",
+      createdAt: new Date().toISOString(),
+    };
+    if (webhookSecret) payload.secret = webhookSecret;
+
     const res = await fetch(webhook, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email,
-        source: "landing-page",
-        createdAt: new Date().toISOString(),
-        secret: webhookSecret,
-      }),
+      body: JSON.stringify(payload),
     });
-    const result = (await res.json().catch(() => null)) as { ok?: unknown } | null;
-    if (!res.ok || result?.ok !== true) throw new Error(`Webhook responded ${res.status}`);
+    if (!res.ok) throw new Error(`Webhook responded ${res.status}`);
+
+    if (webhookSecret) {
+      const result = (await res.json().catch(() => null)) as { ok?: unknown } | null;
+      if (result?.ok !== true) throw new Error("Webhook did not confirm the lead");
+    }
   } catch {
     return NextResponse.json(
       { error: "We couldn't save your email. Please try again." },
