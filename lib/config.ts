@@ -6,7 +6,7 @@ export const site = {
   name: "When Anxiety Takes Over",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://anxiety-devotional.vercel.app",
   price,
-  ctaLabel: `Start Day 1 tonight, ${price}`,
+  ctaLabel: "Start your 30-day journey",
   checkoutRedirectPath: "/checkout",
   checkoutUrl:
     process.env.NEXT_PUBLIC_CHECKOUT_URL ??

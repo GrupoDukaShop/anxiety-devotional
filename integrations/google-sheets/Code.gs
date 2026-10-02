@@ -12,11 +12,6 @@ function doPost(event) {
       return jsonResponse({ ok: false, error: "Unauthorized" });
     }
 
-    const email = typeof payload.email === "string" ? payload.email.trim().toLowerCase() : "";
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-      return jsonResponse({ ok: false, error: "Invalid email" });
-    }
-
     const spreadsheetId = properties.getProperty("SPREADSHEET_ID");
     if (!spreadsheetId) {
       return jsonResponse({ ok: false, error: "Missing spreadsheet ID" });
@@ -39,6 +34,11 @@ function doPost(event) {
       const receivedAt = Number.isNaN(clickedAt.getTime()) ? new Date() : clickedAt;
       clickSheet.appendRow([receivedAt, payload.source]);
       return jsonResponse({ ok: true });
+    }
+
+    const email = typeof payload.email === "string" ? payload.email.trim().toLowerCase() : "";
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      return jsonResponse({ ok: false, error: "Invalid email" });
     }
 
     let sheet = spreadsheet.getSheetByName(SHEET_NAME);

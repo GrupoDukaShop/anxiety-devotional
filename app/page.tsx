@@ -37,7 +37,7 @@ export default function Page() {
         <div className="wrap">
           <CheckoutLink className="hero-offer" href={site.checkoutRedirectPath} source="hero_banner">
             <span>30-day devotional</span>
-            <span className="hero-offer-value">{site.price} · Instant PDF</span>
+            <span className="hero-offer-value">Start your journey today</span>
           </CheckoutLink>
           <nav className="top" aria-label="Top">
             <span className="wordmark">{site.name}</span>
