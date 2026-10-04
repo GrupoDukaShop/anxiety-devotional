@@ -56,9 +56,9 @@ export default function Page() {
                 <CheckoutLink id="hero-cta" className="btn" href={site.checkoutRedirectPath} source="hero_button">
                   {site.ctaLabel}
                 </CheckoutLink>
-                <a className="text-link" href="#free">
+                <CheckoutLink className="text-link" href="#free" source="day_1_free_link">
                   Or read Day 1 free first
-                </a>
+                </CheckoutLink>
               </div>
               <p className="fine">Instant PDF download. 7-day money-back guarantee.</p>
             </div>

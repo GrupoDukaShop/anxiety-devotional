@@ -1,6 +1,6 @@
 const SHEET_NAME = "Leads";
 const CLICK_SHEET_NAME = "Checkout Clicks";
-const CLICK_SOURCES = ["hero_banner", "header", "hero_button", "pricing", "final", "sticky"];
+const CLICK_SOURCES = ["hero_banner", "header", "hero_button", "pricing", "final", "sticky", "day_1_free_link"];
 
 function doPost(event) {
   try {

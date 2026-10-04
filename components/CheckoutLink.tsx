@@ -1,6 +1,6 @@
 "use client";
 
-type CheckoutSource = "hero_banner" | "header" | "hero_button" | "pricing" | "final" | "sticky";
+type CheckoutSource = "hero_banner" | "header" | "hero_button" | "pricing" | "final" | "sticky" | "day_1_free_link";
 
 type Props = {
   href: string;

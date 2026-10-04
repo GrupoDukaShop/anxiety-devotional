@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const CLICK_SOURCES = new Set(["hero_banner", "header", "hero_button", "pricing", "final", "sticky"]);
+const CLICK_SOURCES = new Set(["hero_banner", "header", "hero_button", "pricing", "final", "sticky", "day_1_free_link"]);
 
 export async function POST(request: Request) {
   let body: { source?: unknown };
