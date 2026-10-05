@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Newsreader, Hanken_Grotesk } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { site } from "@/lib/config";
+import VisitorTracker from "@/components/VisitorTracker";
 import "./globals.css";
 
 const serif = Newsreader({
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${serif.variable} ${sans.variable}`}>
       <body>
         {children}
+        <VisitorTracker />
         <Analytics />
       </body>
     </html>

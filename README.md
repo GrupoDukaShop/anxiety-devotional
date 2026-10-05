@@ -43,9 +43,13 @@ npm run build && npm start   # produção
 6. Os cliques nos botões de compra e no link **“Or read Day 1 free first”** são gravados na aba `Checkout Clicks`,
   com horário e origem do clique (o link gratuito aparece como `day_1_free_link`); não incluem identidade pessoal.
   Se já publicou o Apps Script antes, atualize a implantação em **Deploy > Manage deployments**, escolha
-  **Edit > New version > Deploy** para ativar o registro de cliques.
-7. Envie um cadastro de teste e confirme a linha na aba `Leads`; clique em um botão de compra ou no link para ler o
-  Dia 1 grátis e confirme a linha correspondente em `Checkout Clicks`.
+  **Edit > New version > Deploy** para ativar o registro de cliques e visitas.
+7. As visitas e navegações entre páginas são gravadas na aba `Site Visits`, com data e hora de Brasília, país (código
+  ISO de duas letras) e caminho da página. O registro não coleta IP nem identifica a pessoa; país aparece como
+  `Unknown` quando não está disponível (por exemplo, no ambiente local).
+8. Envie um cadastro de teste e confirme a linha na aba `Leads`; clique em um botão de compra ou no link para ler o
+  Dia 1 grátis e confirme a linha correspondente em `Checkout Clicks`. Acesse o site e confirme a visita em
+  `Site Visits`.
 
 O segredo nunca é enviado pelo navegador. Não coloque esses valores em variáveis `NEXT_PUBLIC_*` nem no repositório.
 

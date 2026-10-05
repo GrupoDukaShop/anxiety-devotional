@@ -1,5 +1,6 @@
 const SHEET_NAME = "Leads";
 const CLICK_SHEET_NAME = "Checkout Clicks";
+const VISIT_SHEET_NAME = "Site Visits";
 const CLICK_SOURCES = ["hero_banner", "header", "hero_button", "pricing", "final", "sticky", "day_1_free_link"];
 
 function doPost(event) {
@@ -33,6 +34,37 @@ function doPost(event) {
       const clickedAt = new Date(payload.clickedAt);
       const receivedAt = Number.isNaN(clickedAt.getTime()) ? new Date() : clickedAt;
       clickSheet.appendRow([receivedAt, payload.source]);
+      return jsonResponse({ ok: true });
+    }
+
+    if (payload.event === "page_view") {
+      if (
+        typeof payload.country !== "string" ||
+        (!/^[A-Z]{2}$/.test(payload.country) && payload.country !== "Unknown") ||
+        typeof payload.path !== "string" ||
+        !payload.path.startsWith("/") ||
+        payload.path.startsWith("//") ||
+        payload.path.length > 200
+      ) {
+        return jsonResponse({ ok: false, error: "Invalid page view" });
+      }
+
+      const visitedAt = new Date(payload.visitedAt);
+      if (Number.isNaN(visitedAt.getTime())) {
+        return jsonResponse({ ok: false, error: "Invalid visit time" });
+      }
+
+      let visitSheet = spreadsheet.getSheetByName(VISIT_SHEET_NAME);
+      if (!visitSheet) visitSheet = spreadsheet.insertSheet(VISIT_SHEET_NAME);
+      if (visitSheet.getLastRow() === 0) {
+        visitSheet.appendRow(["Visited at (Brasília)", "Country (ISO-2)", "Page"]);
+      }
+
+      visitSheet.appendRow([
+        Utilities.formatDate(visitedAt, "America/Sao_Paulo", "dd/MM/yyyy HH:mm:ss"),
+        payload.country,
+        payload.path,
+      ]);
       return jsonResponse({ ok: true });
     }
 
